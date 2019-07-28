@@ -345,7 +345,7 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="헬스장이라도 가봐. 건강은 자기자신이 챙기는거다.?!", color=0xfe00fe))
             
     if message.content.startswith("!"):
-        await message.channel.send(embed=discord.Embed(title="행운의숫자는 1~10까지야, 숫자가 나오면 니가 받은 숫자를 다시 채팅방에다 적어봐!", color=0xfefefe))
+        await message.channel.send(embed=discord.Embed(title="행운의숫자는 1~10까지야, 니가 받은 숫자를 다시 채팅방에다 적어봐!", color=0xfefefe))
         randomNum = random.randrange(1, 12)
         if randomNum==1:
             await message.channel.send(embed=discord.Embed(title="10", color=0x00ff00))
