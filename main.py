@@ -73,6 +73,8 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !오늘의상식 ", description=" 배돌이가 무작위로 알아두기만 해도 도움이 될만한 기본상식 하나를 알려줍니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" !볼 만한 영화 추천 ", description=" 배돌이가 제일 괜찮은 영화들을 한편 소개해줍니다 ", color=0xff0000)
+        await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !패치노트 ", description=" 배돌이가 자신의 패치노트를 불러옵니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *명령어 목록은 계속 업데이트 중 입니다. ", description="  ", color=0xff0000)
@@ -215,6 +217,8 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *0.1.1 ", description=" 2019년 07월 27일 토요일, 배돌이 공지 기능 삭제, 대신 !오늘의상식 기능으로 대체합니다. ", color=0x00fefe)
         await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" *0.1.2 ", description=" 2019년 07월 28일 일요일, 배돌이가 영화 한편을 무작위로 추천해줄수 있습니다, 지금 당장 추천받아보세요! ", color=0x00fefe)
+        await message.channel.send(embed=embed)
         embed = discord.Embed(title=" ", description=" ***패치노트는 계속 업데이트 할 예정입니다 ^00^ ", color=0x00fefe)
         await message.channel.send(embed=embed)
         
@@ -231,6 +235,32 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="집에 있는 변기가 막혔을 때는 페트병의 50퍼센트를 정확히 자른 후 받침대가 있는 부분으로 뚜러뻥을 대체 할 수 있다.", color=0xffaaaa))
 
 
+    if message.content.startswith("!볼 만한 영화 추천"):
+        await message.channel.send(embed=discord.Embed(title="안녕? 난 니가 어떤 애인진 모르지만, 정성껏 최선을 다해 추천해줄게.", color=0xfefefe))
+        randomNum = random.randrange(1, 12)
+        if randomNum==1:
+            await message.channel.send(embed=discord.Embed(title="오늘같은 날에는 추억을 되돌아보게 해줄만한 [해리포터 시리즈] 는 어떠니?", color=0xfefe00))
+        if randomNum==2:
+            await message.channel.send(embed=discord.Embed(title="어벤져스 인피니티 워는 어때?", color=0xfefe00))
+        if randomNum==3:
+            await message.channel.send(embed=discord.Embed(title="엑스맨 데이즈 오브 퓨쳐 패스트는?", color=0xfefe00))
+        if randomNum==4:
+            await message.channel.send(embed=discord.Embed(title="인터스텔라는 어떠니? ", color=0xfefe00))
+        if randomNum==5:
+            await message.channel.send(embed=discord.Embed(title="토비 맥과이어가 주연인 [스파이더맨 시리즈]는??", color=0xfefe00))
+        if randomNum==6:
+            await message.channel.send(embed=discord.Embed(title="가끔은 로맨스 영화도 재밌게 느껴지는데.. 노트북은 어떠니?", color=0xfefe00))
+        if randomNum==7:
+            await message.channel.send(embed=discord.Embed(title="파라노말 액티비티 시리즈는 어떠니? 오늘 같은 날에 최고의 조합인 것 같은데.", color=0xfefe00))
+        if randomNum==8:
+            await message.channel.send(embed=discord.Embed(title="캡틴아메리카 윈터솔저 어떠니? 그나마 MCU작품들 중에서 제일 극찬 받았던 히어로물 작품인데..", color=0xfefe00))
+        if randomNum==9:
+            await message.channel.send(embed=discord.Embed(title="가끔은 [ 터미네이터 시리즈 ]도 재밌어, 이 시리즈는 어떠니?", color=0xfefe00))
+        if randomNum==10:
+            await message.channel.send(embed=discord.Embed(title="[ 트랜스포머 시리즈 ]는 어떠니?", color=0xfefe00))
+        if randomNum==11:
+            await message.channel.send(embed=discord.Embed(title="데이터베이스 오류! 관리자에게 연락바랍니다...", color=0xff0000))
+        
 
 
 
