@@ -345,7 +345,7 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="헬스장이라도 가봐. 건강은 자기자신이 챙기는거다.?!", color=0xfe00fe))
             
     if message.content.startswith("!오늘의운세"):
-        await message.channel.send(embed=discord.Embed(title="행운의숫자는 1~10까지야, 니가 받은 숫자를 다시 채팅방에다 적어봐!", color=0xfefefe))
+        await message.channel.send(embed=discord.Embed(title="니가 받은 숫자를 [!숫자]와 동일한 방식으로 채팅에다 다시 적어주렴.", color=0xfefefe))
         randomNum = random.randrange(1, 12)
         if randomNum==1:
             await message.channel.send(embed=discord.Embed(title="10", color=0x00ff00))
@@ -370,7 +370,7 @@ async def on_message(message):
         if randomNum==11:
             await message.channel.send(embed=discord.Embed(title="데이터베이스 오류! 관리자에게 연락하세요...", color=0xff0000))
             
-    if message.content.startswith("3"):
+    if message.content.startswith("!3"):
         await message.channel.send("당신의 행운의 숫자는 3 입니다. ")
         await message.channel.send("행운의 색 - 흰색 ")
         await message.channel.send("행운의 아이템 및 장소 - 부드러운 소재의 블라우스 또는 스커트. 진주, 다이아, 물가, 공원 ")
@@ -388,7 +388,7 @@ async def on_message(message):
         await message.channel.send("당신만을 생각하기 보다는 좀 더 상대를 배려해주세요. 그리고 사소한 잘못은 용서해 주는 것이 포인트이니 이 점을 명심하십시오.  ")
         await message.channel.send("그리하면 훗날 당신에게 더 좋은 운이 돌아올 것입니다.  ")
         
-    if message.content.startswith("7"):
+    if message.content.startswith("!7"):
         await message.channel.send("당신의 행운의 숫자는 7 입니다. ")
         await message.channel.send("행운의 색 - 금색")
         await message.channel.send("행운의 아이템 및 장소 - 잘 빠진 정장, 오팔, 오닉스, 캐치아이, 은행 ")
@@ -405,7 +405,7 @@ async def on_message(message):
         await message.channel.send("더불어 많은 이득을 얻을 수도 있다는 것을 명심하고 모든 상황에 자신감있게, 추진력있게 대응하십시오. ")
         
       
-    if message.content.startswith("8"):
+    if message.content.startswith("!8"):
         await message.channel.send("당신의 행운의 숫자는 8 입니다. ")
         await message.channel.send("행운의 색 - 빨간색")
         await message.channel.send("행운의 아이템 및 장소 - 보송보송하고 얇은 소재의 니트, 인조모피, 루비, 가닛(석류석), 출생지 ")
@@ -423,7 +423,7 @@ async def on_message(message):
         await message.channel.send("싫어도 내색하지 않을 수 있는 인내심을 기르십시오.  ")
         
         
-    if message.content.startswith("9"):
+    if message.content.startswith("!9"):
         await message.channel.send("당신의 행운의 숫자는 9 입니다. ")
         await message.channel.send("행운의 색 - 보라색")
         await message.channel.send("행운의 아이템 및 장소 - 모자, 깔끔하게 정리한 머리, 자수정, 청금속, 서점, 도서관")
@@ -439,7 +439,7 @@ async def on_message(message):
         await message.channel.send("솔직한 것도 좋지만, 가끔은 개성있는 당신의 모습이 사람들에게 조금은 신비감을 느끼도록 하는 것이 당신 주변의 사람들을 쉽게 질리지 않게 하는 방법 임을 잊지 마십시오.")
 
         
-    if message.content.startswith("10"):
+    if message.content.startswith("!10"):
         await message.channel.send("당신의 행운의 숫자는 10 입니다. ")
         await message.channel.send("행운의 색 - 은색")
         await message.channel.send("행운의 아이템 및 장소 - 실크소재의 옷, 다이아, 메이브 펄(진주색), 속도감을 느낄 수 있는 곳")
@@ -453,7 +453,7 @@ async def on_message(message):
         await message.channel.send("때문에 항상 대인관계에 있어서 인내하고 배려하는 태도가 필요하다는 것을 잊지 마시고 모든 인간관계에 신중을 기하도록 하심이 좋습니다.")
         
         
-    if message.content.startswith("1"):
+    if message.content.startswith("!1"):
         await message.channel.send("당신의 행운의 숫자는 1 입니다. ")
         await message.channel.send("행운의 색 - 파란색")
         await message.channel.send("행운의 아이템 및 장소 - 파란색 계통의 포인트가 들어간 코디, 청바지, 사파이어, 아쿠아마린, 바다, 섬, 강 ")
@@ -469,7 +469,7 @@ async def on_message(message):
         await message.channel.send("그들의 당신에 생각도 변하지 않을 것이니 기억하시고 늘 보살피는 태도를 유지하십시오. ")
         
         
-    if message.content.startswith("2"):
+    if message.content.startswith("!2"):
         await message.channel.send("당신의 행운의 숫자는 2 입니다. ")
         await message.channel.send("행운의 색 - 검정색")
         await message.channel.send("행운의 아이템 및 장소 - 롱코트나 가디건, 오닉스, 검은 돌, 빌딩, 도시")
@@ -485,7 +485,7 @@ async def on_message(message):
         await message.channel.send("사람들 앞에서 좀 더 솔직하게 자신의 모습을 드러내 보십시오.")
         
         
-    if message.content.startswith("4"):
+    if message.content.startswith("!4"):
         await message.channel.send("당신의 행운의 숫자는 4 입니다. ")
         await message.channel.send("행운의 색 - 초록색")
         await message.channel.send("행운의 아이템 및 장소 - 바지(팬츠)스타일, 에메랄드, 양산, 틀루마린, 나무, 산, 숲, 호수")
@@ -503,7 +503,7 @@ async def on_message(message):
         await message.channel.send("늘 성격좋고 뭐든 다 받아주는 사람, 가끔은 남에게 얕보일 소지가 있기도 하다는 것을 잊지 마시고")
         await message.channel.send("그럴 근원이 되는 일은 아예 만들지 않는 것이 좋습니다.")
         
-    if message.content.startswith("5"):
+    if message.content.startswith("!5"):
         await message.channel.send("당신의 행운의 숫자는 5 입니다. ")
         await message.channel.send("행운의 색 - 노란색")
         await message.channel.send("행운의 아이템 및 장소 - 금으로 된 액세서리, 토파즈, 옐로우 사파이어, 술집, BAR ")
@@ -519,7 +519,7 @@ async def on_message(message):
         await message.channel.send("매사 주변 사람들을 먼저 배려하는 생활태도는 늘 그들을 당신의 편이 되게 하여 줄 것입니다.")
         
         
-    if message.content.startswith("6"):
+    if message.content.startswith("!6"):
         await message.channel.send("당신의 행운의 숫자는 6 입니다. ")
         await message.channel.send("행운의 색 - 은색")
         await message.channel.send("행운의 아이템 및 장소 - 실크소재의 옷, 다이아, 메이브 펄(진주색), 속도감을 느낄 수 있는 곳")
