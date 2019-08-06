@@ -176,7 +176,7 @@ async def on_message(message):
         await message.channel.send( msg)
         
     if message.content.startswith("!PC 게임 추천"):
-        randomNum = random.randrange(1, 10)
+        randomNum = random.randrange(1, 12)
         if randomNum==1:
             await message.channel.send(embed=discord.Embed(title="배틀그라운드는 어떠니", color=0x00ff00))
         if randomNum==2:
@@ -195,6 +195,10 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="피파 온라인 4는 꽤 재밌어보이던데.", color=0x00ff00))
         if randomNum==9:
             await message.channel.send(embed=discord.Embed(title="GTA5도 한번 시작해봐, 꽤 재밌어.", color=0x00ff00))
+        if randomNum==10:
+            await message.channel.send(embed=discord.Embed(title="리니지 한번 시작해봐.", color=0x00ff00))
+        if randomNum==11:
+            await message.channel.send(embed=discord.Embed(title="카운터스트라이크 온라인도 한번 해보면 재밌을 거야.", color=0x00ff00))           
 
     if message.content.startswith("!패치노트"):
         embed = discord.Embed(title="*2018년 12월 ", description=" 배돌이 프로젝트 구상 및 개발 시작! ", color=0x00fefe)
