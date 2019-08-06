@@ -111,13 +111,17 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="참고로 듣보잡 업체들 특징이 뭔지 아니? 스트리머 및 유튜버들에게 광고를 부탁한다는 점이야. ", color=0xff0000))
             
     if message.content.startswith("!커뮤니티 웹사이트 추천"):
-        randomNum = random.randrange(1, 4)
+        randomNum = random.randrange(1, 6)
         if randomNum==1:
             await message.channel.send(embed=discord.Embed(title="네이버 카페는 어떠니", color=0x0000ff))
         if randomNum==2:
             await message.channel.send(embed=discord.Embed(title="디시인사이드는 어때??", color=0x0000ff))
         if randomNum==3:
             await message.channel.send(embed=discord.Embed(title="인벤은 해볼 생각 없어?", color=0x0000ff))
+        if randomNum==4:
+            await message.channel.send(embed=discord.Embed(title="클리앙은 어떠니?", color=0x0000ff))
+        if randomNum==5:
+            await message.channel.send(embed=discord.Embed(title="오늘의유머는 해볼 생각 없어?", color=0x0000ff))
 
     if message.content.startswith("!볼 만한 유튜버 추천"):
         randomNum = random.randrange(1, 11)
