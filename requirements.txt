@@ -1,6 +1,5 @@
 discord.py==1.0.1
 from setuptools import setup
-from urllib.request import urlopen, Request
 
 setup(
     name="MyLibrary",
