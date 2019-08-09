@@ -7,10 +7,7 @@ import random
 import traceback
 import time
 import os
-import bs4
-import urllib
-import urllib.request
-from urllib.request import urlopen, Request
+
 
 
 app = discord.Client()
@@ -552,30 +549,7 @@ async def on_message(message):
         await message.channel.send("때문에 항상 대인관계에 있어서 인내하고 배려하는 태도가 필요하다는 것을 잊지 마시고 모든 인간관계에 신중을 기하도록 하심이 좋습니다.")
 
         
-    if message.content.startswith('!실시간검색어') or message.content.startswith('!실검'):
-        url = "https://www.naver.com/"
-        html = urllib.request.urlopen(url)
-    
-        bsObj = bs4.BeautifulSoup(html, "html.parser")
-        realTimeSerach1 = bsObj.find('div', {'class': 'ah_roll_area PM_CL_realtimeKeyword_rolling'})
-        realTimeSerach2 = realTimeSerach1.find('ul', {'class': 'ah_l'})
-        realTimeSerach3 = realTimeSerach2.find_all('li')
-    
-    
-        embed = discord.Embed(
-        title='네이버 실시간 검색어',
-        description='실시간검색어',
-        color=discord.Color.green()
-            )
-        for i in range(0,20):
-            realTimeSerach4 = realTimeSerach3[i]
-            realTimeSerach5 = realTimeSerach4.find('span', {'class': 'ah_k'})
-            realTimeSerach = realTimeSerach5.text.replace(' ', '')
-            realURL = 'https://search.naver.com/search.naver?ie=utf8&query='+realTimeSerach
-            print(realTimeSerach)
-            embed.add_field(name=str(i+1)+'위', value='\n'+'[%s](<%s>)' % (realTimeSerach, realURL), inline=False) 
-    
-        await message.channel.send(embed=embed)          
+         
      
 
 
