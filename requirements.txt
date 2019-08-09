@@ -6,6 +6,8 @@ setup(
     name="MyLibrary",
     version="1.0",
     install_requires=[
+        "requests",
+        "bcrypt",
         "bs4",
         "urllib",
         "urllib.request",
