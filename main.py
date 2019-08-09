@@ -574,8 +574,9 @@ async def on_message(message):
             realTimeSerach = realTimeSerach5.text.replace(' ', '')
             realURL = 'https://search.naver.com/search.naver?ie=utf8&query='+realTimeSerach
             print(realTimeSerach)
-            embed = discord.Embed(title=str(i+1)+'위', value='\n'+'[%s](<%s>)' % (realTimeSerach, realURL), description="",inline=False)
-            await message.channel.send(embed=embed)
+            embed.add_field(name=str(i+1)+'위', value='\n'+'[%s](<%s>)' % (realTimeSerach, realURL), inline=False) 
+            
+        await message.channel.send(embed=embed)
     
                  
         
