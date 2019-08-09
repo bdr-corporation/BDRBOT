@@ -1,15 +1,6 @@
 discord.py==1.0.1
-from setuptools import setup
-
-setup(
-    name="MyLibrary",
-    version="1.0",
-    install_requires=[
-        "bs4",
-        "urllib",
-        "urllib.request",
-        "urllib",
-    ],
-    # ...
-)
+import bs4
+import urllib
+import urllib.request
+from urllib.request import urlopen, Request
 
