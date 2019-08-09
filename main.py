@@ -7,10 +7,7 @@ import random
 import traceback
 import time
 import os
-import bs4
-import urllib
-import urllib.request
-from urllib.request import urlopen, Request
+
 
 
 app = discord.Client()
