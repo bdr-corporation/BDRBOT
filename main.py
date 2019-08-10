@@ -53,8 +53,9 @@ async def on_message(message):
 
     if message.content.startswith("!도와줘"):
         dtime = datetime.datetime.now()
-        embed.set_footer(text=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초")
-        embed = discord.Embed(title="  ", description=" 안녕? 난 뉴 배돌이야. 너희들과 대화를 나눠보고 싶어.", color=0xff0000)
+        embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" 안녕? 난 뉴 배돌이야. 너희들과 대화를 나눠보고 싶어.  ", description="", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" 명령어 목록 ", description=" ", color=0xff0000)
         await message.channel.send(embed=embed)
