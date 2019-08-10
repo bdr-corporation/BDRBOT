@@ -88,7 +88,9 @@ async def on_message(message):
         embed = discord.Embed(title=" !볼 만한 영화 추천 ", description=" 배돌이가 제일 괜찮은 영화들을 한편 소개해줍니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !오늘의운세", description=" 배돌이가 오늘의운세를 짧고 간결하게 알려줍니다 ", color=0xff0000)
-        await message.channel.send(embed=embed)       
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" !이모티콘 ", description=" 배돌이가 무작위로 이모티콘 하나를 ", color=0xff0000)
+        await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !패치노트 ", description=" 배돌이가 자신의 패치노트를 불러옵니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *명령어 목록은 계속 업데이트 중 입니다. ", description="  ", color=0xff0000)
@@ -244,6 +246,8 @@ async def on_message(message):
         embed = discord.Embed(title=" *0.1.3 ", description=" 2019년 07월 28일 일요일, 배돌이가 오늘의운세를 알려줍니다. 지금 당장 운세를 무료로 받아보세요!", color=0x00fefe)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *0.1.4 ", description=" 2019년 08월 09일 금요일, 배돌이가 네이버 기반인 현 실시간 검색어 랭킹을 알려줍니다!(현재 삭제된 기능입니다;;)", color=0x00fefe)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" *0.1.5 ", description=" 2019년 08월 10일 토요일, 배돌이가 이제 커여운 이모티콘을 사용할 수 있습니다.", color=0x00fefe)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" ", description=" ***패치노트는 계속 업데이트 할 예정입니다 ^00^ ", color=0x00fefe)
         await message.channel.send(embed=embed)
@@ -555,18 +559,23 @@ async def on_message(message):
         await message.channel.send("때문에 항상 대인관계에 있어서 인내하고 배려하는 태도가 필요하다는 것을 잊지 마시고 모든 인간관계에 신중을 기하도록 하심이 좋습니다.")
 
         
-    if message.content.startswith("!배돌아"):
-        channel = message.author.voice.voice_channel
-        server = message.server
-        voice_app = app.voice_app_in(server)
-        print("배돌아")
-        print(voice_app)
-        print("배돌아")
-        if voice_app== None:
-            await message.channel.send("네, 저 여기 있어요~") 
-            await app.join_voice_channel(channel)
-        else:
-            await message.channel.send("봇은 이미 들어와있습니다.")
+    if message.content.startswith("!이모티콘"):
+
+        emoji = [" ꒰⑅ᵕ༚ᵕ꒱ ", " ꒰◍ˊ◡ˋ꒱ ", " ⁽⁽◝꒰ ˙ ꒳ ˙ ꒱◜⁾⁾ ", " ༼ つ ◕_◕ ༽つ ", " ⋌༼ •̀ ⌂ •́ ༽⋋ ",
+                 " ( ･ิᴥ･ิ) ", " •ө• ", " ค^•ﻌ•^ค ", " つ╹㉦╹)つ ", " ◕ܫ◕ ", " ᶘ ͡°ᴥ͡°ᶅ ", " ( ؕؔʘ̥̥̥̥ ه ؔؕʘ̥̥̥̥ ) ",
+                 " ( •́ ̯•̀ ) ",
+                 " •̀.̫•́✧ ", " '͡•_'͡• ", " (΄◞ิ౪◟ิ‵) ", " ˵¯͒ བ¯͒˵ ", " ͡° ͜ʖ ͡° ", " ͡~ ͜ʖ ͡° ", " (づ｡◕‿‿◕｡)づ ",
+                 " ´_ゝ` ", " ٩(͡◕_͡◕ ", " ⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄ ", " ٩(͡ï_͡ï☂ ", " ௐ ", " (´･ʖ̫･`) ", " ε⌯(ง ˙ω˙)ว ",
+                 " (っ˘ڡ˘ς) ", "●▅▇█▇▆▅▄▇", "╋╋◀", "︻╦̵̵̿╤──", "ー═┻┳︻▄", "︻╦̵̵͇̿̿̿̿══╤─",
+                 " ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ", "∑◙█▇▆▅▄▃▂", " ♋♉♋ ", " (๑╹ω╹๑) ", " (╯°□°）╯︵ ┻━┻ ",
+                 " (///▽///) ", " σ(oдolll) ", " 【o´ﾟ□ﾟ`o】 ", " ＼(^o^)／ ", " (◕‿‿◕｡) ", " ･ᴥ･ ", " ꈍ﹃ꈍ "
+                                                                                                 " ˃̣̣̣̣̣̣︿˂̣̣̣̣̣̣ ",
+                 " ( ◍•㉦•◍ ) ", " (｡ì_í｡) ", " (╭•̀ﮧ •́╮) ", " ଘ(੭*ˊᵕˋ)੭ ", " ´_ゝ` ", " (~˘▾˘)~ "] 
+
+        randomNum = random.randrange(0, len(emoji)) 
+        print("랜덤수 값 :" + str(randomNum))
+        print(emoji[randomNum])
+        await message.channel.send(embed=discord.Embed(description=emoji[randomNum], color=0xffaaaa))  
     
                  
         
