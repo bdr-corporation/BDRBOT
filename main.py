@@ -89,7 +89,7 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !오늘의운세", description=" 배돌이가 오늘의운세를 짧고 간결하게 알려줍니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" !이모티콘 ", description=" 배돌이가 무작위로 이모티콘 하나를 ", color=0xff0000)
+        embed = discord.Embed(title=" !이모티콘 ", description=" 배돌이가 무작위로 이모티콘 하나를 호출합니다", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !패치노트 ", description=" 배돌이가 자신의 패치노트를 불러옵니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
