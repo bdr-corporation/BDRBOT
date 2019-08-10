@@ -7,9 +7,9 @@ import random
 import traceback
 import time
 import os
-import BeautifulSoup
+import bs4
 import urllib
-
+import urllib.request
 
 
 app = discord.Client()
@@ -559,7 +559,7 @@ async def on_message(message):
         url = "https://www.naver.com/"
         html = urllib.request.urlopen(url)
     
-        bsObj = BeautifulSoup.BeautifulSoup(html, "html.parser")
+        bsObj = Bs4.BeautifulSoup(html, "html.parser")
         realTimeSerach1 = bsObj.find('div', {'class': 'ah_roll_area PM_CL_realtimeKeyword_rolling'})
         realTimeSerach2 = realTimeSerach1.find('ul', {'class': 'ah_l'})
         realTimeSerach3 = realTimeSerach2.find_all('li')
