@@ -7,9 +7,7 @@ import random
 import traceback
 import time
 import os
-import bs4
-import urllib
-import urllib.request
+
 
 
 app = discord.Client()
@@ -86,9 +84,7 @@ async def on_message(message):
         embed = discord.Embed(title=" !볼 만한 영화 추천 ", description=" 배돌이가 제일 괜찮은 영화들을 한편 소개해줍니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !오늘의운세", description=" 배돌이가 오늘의운세를 짧고 간결하게 알려줍니다 ", color=0xff0000)
-        await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" !실시간검색어", description=" 배돌이가 네이버 실시간 검색어 순위를 기반으로 현재 실검 현황을 알려줍니다 ", color=0xff0000)
-        await message.channel.send(embed=embed)
+        await message.channel.send(embed=embed)       
         embed = discord.Embed(title=" !패치노트 ", description=" 배돌이가 자신의 패치노트를 불러옵니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *명령어 목록은 계속 업데이트 중 입니다. ", description="  ", color=0xff0000)
@@ -243,7 +239,7 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *0.1.3 ", description=" 2019년 07월 28일 일요일, 배돌이가 오늘의운세를 알려줍니다. 지금 당장 운세를 무료로 받아보세요!", color=0x00fefe)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" *0.1.4 ", description=" 2019년 08월 09일 금요일, 배돌이가 네이버 기반인 현 실시간 검색어 랭킹을 알려줍니다!", color=0x00fefe)
+        embed = discord.Embed(title=" *0.1.4 ", description=" 2019년 08월 09일 금요일, 배돌이가 네이버 기반인 현 실시간 검색어 랭킹을 알려줍니다!(현재 삭제된 기능입니다;;)", color=0x00fefe)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" ", description=" ***패치노트는 계속 업데이트 할 예정입니다 ^00^ ", color=0x00fefe)
         await message.channel.send(embed=embed)
@@ -555,30 +551,18 @@ async def on_message(message):
         await message.channel.send("때문에 항상 대인관계에 있어서 인내하고 배려하는 태도가 필요하다는 것을 잊지 마시고 모든 인간관계에 신중을 기하도록 하심이 좋습니다.")
 
         
-    if message.content.startswith('!실시간검색어') or message.content.startswith('!실검'):
-        url = "https://www.naver.com/"
-        html = urllib.request.urlopen(url)
-    
-        bsObj = Bs4.BeautifulSoup(html, "html.parser")
-        realTimeSerach1 = bsObj.find('div', {'class': 'ah_roll_area PM_CL_realtimeKeyword_rolling'})
-        realTimeSerach2 = realTimeSerach1.find('ul', {'class': 'ah_l'})
-        realTimeSerach3 = realTimeSerach2.find_all('li')
-    
-    
-        embed = discord.Embed(
-        title='네이버 실시간 검색어',
-        description='실시간검색어',
-        color=discord.Color.green()
-            )
-        for i in range(0,20):
-            realTimeSerach4 = realTimeSerach3[i]
-            realTimeSerach5 = realTimeSerach4.find('span', {'class': 'ah_k'})
-            realTimeSerach = realTimeSerach5.text.replace(' ', '')
-            realURL = 'https://search.naver.com/search.naver?ie=utf8&query='+realTimeSerach
-            print(realTimeSerach)
-            embed.add_field(name=str(i+1)+'위', value='\n'+'[%s](<%s>)' % (realTimeSerach, realURL), inline=False) 
-            
-        await message.channel.send(embed=embed)
+    if message.content.startswith("!배돌아"):
+        channel = message.author.voice.voice_channel
+        server = message.server
+        voice_app = app.voice_app_in(server)
+        print("배돌아")
+        print(voice_app)
+        print("배돌아")
+        if voice_app== None:
+            await message.channel.send("네, 저 여기 있어요~") 
+            await app.join_voice_channel(channel)
+        else:
+            await message.channel.send("봇은 이미 들어와있습니다.")
     
                  
         
