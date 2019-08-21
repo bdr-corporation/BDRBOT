@@ -11,6 +11,7 @@ import os
 import urllib
 import bs4
 from bs4 import BeautifulSoup
+from urllib.request import urlopen, Request
 
 app = discord.Client()
 
