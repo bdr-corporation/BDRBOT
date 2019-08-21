@@ -11,7 +11,7 @@ import os
 import urllib
 import bs4
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin
+from urllib.request import urlopen, Request
 
 app = discord.Client()
 
@@ -605,6 +605,43 @@ async def on_message(message):
             embed.add_field(name=str(i+1)+'위', value='\n'+'[%s](<%s>)' % (realTimeSerach, realURL), inline=False) 
             
         await message.channel.send(embed=embed)
+        
+        
+    if message.content.startswith('!이미지'):
+        
+        Text = ""
+        learn = message.content.split(" ")
+        vrsize = len(learn)  
+        vrsize = int(vrsize)
+        for i in range(1, vrsize):  
+            Text = Text + " " + learn[i]
+        print(Text.strip())  
+
+        randomNum = random.randrange(0, 40) 
+
+        location = Text
+        enc_location = urllib.parse.quote(location) 
+        hdr = {'User-Agent': 'Mozilla/5.0'}
+      
+        url = 'https://search.naver.com/search.naver?where=image&sm=tab_jum&query=' + enc_location 
+        print(url)
+        req = Request(url, headers=hdr)
+        html = urllib.request.urlopen(req)
+        bsObj = bs4.BeautifulSoup(html, "html.parser") 
+        # print(bsObj)
+        imgfind1 = bsObj.find('div', {'class': 'photo_grid _box'}) 
+        # print(imgfind1)
+        imgfind2 = imgfind1.findAll('a', {'class': 'thumb _thumb'}) 
+        imgfind3 = imgfind2[randomNum]  
+        imgfind4 = imgfind3.find('img') 
+        imgsrc = imgfind4.get('data-source') 
+        print(imgsrc)
+        embed = discord.Embed(
+            color=discord.Color.green()
+        )
+        embed.add_field(name='검색 : '+Text, value='링크 : '+imgsrc, inline=False)
+        embed.set_image(url=imgsrc) 
+        await message.channel.send(embed=embed) 
     
                  
         
