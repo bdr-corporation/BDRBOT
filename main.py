@@ -9,7 +9,7 @@ import time
 import datetime
 import os
 import requests
-from bs4 import BeautifulSoup
+import bs4
 
 
 app = discord.Client()
