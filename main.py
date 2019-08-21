@@ -8,9 +8,9 @@ import traceback
 import time
 import datetime
 import os
-import requests
+import urllib
 import bs4
-
+from bs4 import BeautifulSoup
 
 app = discord.Client()
 
