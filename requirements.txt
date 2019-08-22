@@ -3,7 +3,5 @@ beautifulsoup4==4.6.0
 requests==2.18.3
 urllib3==1.22
 pynacl==1.2.1
-discord.py[voice]
-pip
-youtube_dl
+
 
