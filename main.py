@@ -661,23 +661,7 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         
         
-    if message.content.startswith('!움짤'):
-        embed = discord.Embed(
-            title='',
-            description='',
-            color=discord.Color.green()
-        )
-        url = "http://www.gifbin.com/random"
-        urlBase = "http://www.gifbin.com"
-        html = urllib.request.urlopen(url)
-        bsObj = bs4.BeautifulSoup(html, "html.parser")
-        gif1 = bsObj.find('form', {'id': 'share-form'})
-        gif2 = gif1.find('a')
-        gif3 = gif2["href"]
-        gifURL = urlBase + gif3
-        print(gifURL)
-        embed.set_image(url=gifURL)
-        await message.channel.send(embed=embed)
+
         
         
 
