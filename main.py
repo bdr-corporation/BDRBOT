@@ -11,6 +11,7 @@ import os
 import urllib
 import bs4
 from bs4 import BeautifulSoup
+from urllib.request import urlopen, Request
 
 app = discord.Client()
 
@@ -93,6 +94,8 @@ async def on_message(message):
         embed = discord.Embed(title=" !이모티콘 ", description=" 배돌이가 무작위로 이모티콘 하나를 호출합니다", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !실시간검색어", description=" 배돌이가 네이버 실시간 검색어 순위를 기반으로 현재 실검 현황을 알려줍니다 ", color=0xff0000)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" !실시간영화랭킹 ", description=" 배돌이가 다음 검색 엔진 기반으로 현재 영화 랭킹 현황을 알려줍니다  ", color=0xff0000)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" !패치노트 ", description=" 배돌이가 자신의 패치노트를 불러옵니다 ", color=0xff0000)
         await message.channel.send(embed=embed)
@@ -251,6 +254,8 @@ async def on_message(message):
         embed = discord.Embed(title=" *0.1.4 ", description=" 2019년 08월 09일 금요일, 배돌이가 네이버 기반인 현 실시간 검색어 랭킹을 알려줍니다!(2019년08월21일 다시 부활한 기능입니다.)", color=0x00fefe)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *0.1.5 ", description=" 2019년 08월 10일 토요일, 배돌이가 이제 커여운 이모티콘을 사용할 수 있습니다.", color=0x00fefe)
+        await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" *0.1.6 ", description=" 2019년 08월 22일 목요일, 배돌이가 다음 검색 엔진 기반인 현재 영화 랭킹을 알려줍니다.", color=0x00fefe)
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" ", description=" ***패치노트는 계속 업데이트 할 예정입니다 ^00^ ", color=0x00fefe)
         await message.channel.send(embed=embed)
