@@ -10,6 +10,7 @@ import datetime
 import os
 import urllib
 import bs4
+import openpyxl
 from bs4 import BeautifulSoup
 from urllib.request import urlopen, Request
 
@@ -658,6 +659,47 @@ async def on_message(message):
             embed.add_field(name='---------------랭킹'+stri1+'위---------------', value='\n영화제목 : '+moviechartLi1MovieName+'\n영화평점 : '+moviechartLi1Ratting+'점'+'\n개봉날짜 : '+moviechartLi1openDay+'\n예매율,랭킹변동 : '+moviechartLi1Yerating, inline=False) 
 
 
+        await message.channel.send(embed=embed)
+        
+        
+    if message.content.startswith('!번역'):
+        learn = message.content.split(" ")
+        Text = ""
+
+        app_id = ""
+        app_secret = ""
+
+        url = "https://openapi.naver.com/v1/papago/n2mt"
+        print(len(learn))
+        vrsize = len(learn)  
+        vrsize = int(vrsize)
+        for i in range(1, vrsize): 
+            Text = Text+" "+learn[i]
+        encText = urllib.parse.quote(Text)
+        data = "source=ko&target=en&text=" + encText
+
+        request = urllib.request.Request(url)
+        request.add_header("X-Naver-App-Id", app_id)
+        request.add_header("X-Naver-App-Secret", app_secret)
+
+        response = urllib.request.urlopen(request, data=data.encode("utf-8"))
+
+        rescode = response.getcode()
+        if (rescode == 200):
+            response_body = response.read()
+            data = response_body.decode('utf-8')
+            data = json.loads(data)
+            tranText = data['message']['result']['translatedText']
+        else:
+            print("Error Code:" + rescode)
+
+        print('번역된 내용 :', tranText)
+
+        embed = discord.Embed(
+            title='성공적으로 번역을 성공하였습니다!',
+            description=tranText,
+            color=discord.Color.green()
+        )
         await message.channel.send(embed=embed)
         
         
