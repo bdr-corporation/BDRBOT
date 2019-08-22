@@ -661,44 +661,22 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         
         
-    if message.content.startswith('!번역'):
-        learn = message.content.split(" ")
-        Text = ""
-
-        app_id = ""
-        app_secret = ""
-
-        url = "https://openapi.naver.com/v1/papago/n2mt"
-        print(len(learn))
-        vrsize = len(learn)  
-        vrsize = int(vrsize)
-        for i in range(1, vrsize): 
-            Text = Text+" "+learn[i]
-        encText = urllib.parse.quote(Text)
-        data = "source=ko&target=en&text=" + encText
-
-        request = urllib.request.Request(url)
-        request.add_header("X-Naver-App-Id", app_id)
-        request.add_header("X-Naver-App-Secret", app_secret)
-
-        response = urllib.request.urlopen(request, data=data.encode("utf-8"))
-
-        rescode = response.getcode()
-        if (rescode == 200):
-            response_body = response.read()
-            data = response_body.decode('utf-8')
-            data = json.loads(data)
-            tranText = data['message']['result']['translatedText']
-        else:
-            print("Error Code:" + rescode)
-
-        print('번역된 내용 :', tranText)
-
+    if message.content.startswith('!움짤'):
         embed = discord.Embed(
-            title='성공적으로 번역을 성공하였습니다!',
-            description=tranText,
+            title='',
+            description='',
             color=discord.Color.green()
         )
+        url = "http://www.gifbin.com/random"
+        urlBase = "http://www.gifbin.com"
+        html = urllib.request.urlopen(url)
+        bsObj = bs4.BeautifulSoup(html, "html.parser")
+        gif1 = bsObj.find('form', {'id': 'share-form'})
+        gif2 = gif1.find('a')
+        gif3 = gif2["href"]
+        gifURL = urlBase + gif3
+        print(gifURL)
+        embed.set_image(url=gifURL)
         await message.channel.send(embed=embed)
         
         
