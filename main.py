@@ -661,6 +661,78 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         
         
+    if message.content.startswith("!배그솔로"):
+
+        learn = message.content.split(" ")
+        location = learn[1]
+        enc_location = urllib.parse.quote(location)
+        url = "https://dak.gg/profile/"+enc_location
+        html = urllib.request.urlopen(url)
+        bsObj = bs4.BeautifulSoup(html, "html.parser")
+        solo1 = bsObj.find("div", {"class": "overview"})
+        solo2 = solo1.text
+        solo3 = solo2.strip()
+        channel = message.channel
+        embed = discord.Embed(
+            title='배틀그라운드 솔로모드 전적',
+            description='',
+            color=discord.Color.green())
+        if solo3 == "No record":
+            print("솔로모드 정보가 존재하지 않습니다.")
+            embed.add_field(name='배틀그라운드를 1판이라도 하셔야 합니다.', value='이런! 전적이 없네요?!', inline=False)
+            await message.channel.send(embed=embed)
+
+        else:
+            solo4 = solo1.find("span", {"class": "value"})
+            soloratting = solo4.text  
+            solorank0_1 = solo1.find("div", {"class": "grade-info"})
+            solorank0_2 = solorank0_1.text
+            solorank = solorank0_2.strip() 
+
+            print("레이팅 : " + soloratting)
+            print("등급 : " + solorank)
+            print("")
+            embed.add_field(name='레이팅', value=soloratting, inline=False)
+            embed.add_field(name='등급', value=solorank, inline=False)
+
+            soloKD1 = bsObj.find("div", {"class": "kd stats-item stats-top-graph"})
+            soloKD2 = soloKD1.find("p", {"class": "value"})
+            soloKD3 = soloKD2.text
+            soloKD = soloKD3.strip() 
+            soloSky1 = soloKD1.find("span", {"class": "top"})
+            soloSky2 = soloSky1.text  
+
+            print("킬뎃 : " + soloKD)
+            print("킬뎃상위 : " + soloSky2)
+            print("")
+            embed.add_field(name='킬뎃,킬뎃상위', value=soloKD+" "+soloSky2, inline=False)
+            
+
+            soloWinRat1 = bsObj.find("div", {"class": "stats"})  
+            soloWinRat2 = soloWinRat1.find("div", {"class": "winratio stats-item stats-top-graph"})
+            soloWinRat3 = soloWinRat2.find("p", {"class": "value"})
+            soloWinRat = soloWinRat3.text.strip()  
+            soloWinRatSky1 = soloWinRat2.find("span", {"class": "top"})
+            soloWinRatSky = soloWinRatSky1.text.strip() 
+
+            print("승률 : " + soloWinRat)
+            print("승률상위 : " + soloWinRatSky)
+            print("")
+            embed.add_field(name='승률,승률상위', value=soloWinRat+" "+soloWinRatSky, inline=False)
+            
+
+            soloHead1 = soloWinRat1.find("div", {"class": "headshots stats-item stats-top-graph"})
+            soloHead2 = soloHead1.find("p", {"class": "value"})
+            soloHead = soloHead2.text.strip()  
+            soloHeadSky1 = soloHead1.find("span", {"class": "top"})
+            soloHeadSky = soloHeadSky1.text.strip()  
+
+            print("헤드샷 : " + soloHead)
+            print("헤드샷상위 : " + soloHeadSky)
+            print("")
+            embed.add_field(name='헤드샷,헤드샷상위', value=soloHead+" "+soloHeadSky, inline=False)
+            
+            await message.channel.send(embed=embed)
 
 
         
