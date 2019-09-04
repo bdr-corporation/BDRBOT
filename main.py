@@ -10,8 +10,6 @@ import datetime
 import os
 import urllib
 import bs4
-import youtube_dl
-from selenium import webdriver
 from bs4 import BeautifulSoup
 from urllib.request import urlopen, Request
 
