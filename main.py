@@ -662,6 +662,19 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         
         
+    if message.content.startswith("!들어와"):
+        msg = message.content.split(" ")
+        try:
+            url = msg[1]
+            url1 = re.match('(https?://)?(www\.)?((youtube\.(com))/watch\?v=([-\w]+)|youtu\.be/([-\w]+))', url) 
+        if url1 == None:
+            await message.channel.send(embed=discord.Embed(title=":no_entry_sign: url을 제대로 입력해주세요.",colour = 0x2EFEF7))
+            return
+    except IndexError:
+        await message.channel.send( embed=discord.Embed(title=":no_entry_sign: url을 입력해주세요.",colour = 0x2EFEF7))
+        return
+
+
 
 
 
