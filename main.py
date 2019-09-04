@@ -11,6 +11,7 @@ import os
 import urllib
 import bs4
 import youtube_dl
+from selenium import webdriver
 from bs4 import BeautifulSoup
 from urllib.request import urlopen, Request
 
@@ -662,18 +663,41 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         
         
-    if message.content.startswith("!들어와"):
-        msg = message.content.split(" ")
-        try:
-            url = msg[1]
-            url1 = re.match('(https?://)?(www\.)?((youtube\.(com))/watch\?v=([-\w]+)|youtu\.be/([-\w]+))', url) 
-        if url1 == None:
-            await message.channel.send(embed=discord.Embed(title=":no_entry_sign: url을 제대로 입력해주세요.",colour = 0x2EFEF7))
-            return
-    except IndexError:
-        await message.channel.send( embed=discord.Embed(title=":no_entry_sign: url을 입력해주세요.",colour = 0x2EFEF7))
-        return
+    if message.content.startswith('!사진'):
+        
+        Text = ""
+        learn = message.content.split(" ")
+        vrsize = len(learn)  
+        vrsize = int(vrsize)
+        for i in range(1, vrsize):  
+            Text = Text + " " + learn[i]
+        print(Text.strip())  
 
+        randomNum = random.randrange(0, 40)
+
+        location = Text
+        enc_location = urllib.parse.quote(location) 
+        hdr = {'User-Agent': 'Mozilla/5.0'}
+        url = 'https://search.naver.com/search.naver?where=image&sm=tab_jum&query=' + enc_location 
+        print(url)
+        req = Request(url, headers=hdr)
+        html = urllib.request.urlopen(req)
+        bsObj = bs4.BeautifulSoup(html, "html.parser") 
+        
+        imgfind1 = bsObj.find('div', {'class': 'photo_grid _box'}) 
+        
+        imgfind2 = imgfind1.findAll('a', {'class': 'thumb _thumb'}) 
+        imgfind3 = imgfind2[randomNum]  
+        imgfind4 = imgfind3.find('img') 
+        imgsrc = imgfind4.get('data-source') 
+        print(imgsrc)
+        embed = discord.Embed(
+            color=discord.Color.blue()
+        )
+        embed.add_field(name='검색 : '+Text, value='링크 : '+imgsrc, inline=False)
+        embed.set_image(url=imgsrc) 
+        await message.channel.send(embed=embed)
+ 
 
 
 
