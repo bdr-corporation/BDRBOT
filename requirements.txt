@@ -3,5 +3,5 @@ beautifulsoup4==4.6.0
 requests==2.18.3
 urllib3==1.22
 pynacl==1.2.1
-
+youtube_dl==19.2.1
 
