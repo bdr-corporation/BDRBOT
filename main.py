@@ -15,23 +15,7 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen, Request
 
 
-countG = 0
 app = discord.Client()
-players = {}
-queues= {}
-musiclist=[]
-mCount=1
-searchYoutube={}
-searchYoutubeHref={}
-
-def check_queue(id):
-    if queues[id]!=[]:
-        player = queues[id].pop(0)
-        players[id] = player
-        del musiclist[0]
-        player.start()
-        
-
 
 @app.event
 async def on_ready():
@@ -678,34 +662,7 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         
         
-    if message.content.startswith("!들어와라"):
-        channel = message.author.voice.voice_channel
-        server = message.server
-        voice_client = app.voice_client_in(server)
-        print("봇에게 초대장을 보냈습니다.")
-        print(voice_client)
-        print("봇에게 초대장을 보냈습니다.")
-        if voice_client== None:
-            await message.channel.send( '성공적으로 배돌이와의 연결이 승인되었습니다.') 
-            await app.join_voice_channel(channel)
-        else:
-            await message.channel.send( '이미 봇이 들어와있는 상태입니다;') 
 
-
-
-
-    if message.content.startswith("!나가라"):
-        server = message.server
-        voice_client = app.voice_client_in(server)
-        print("당신은 봇을 강퇴했습니다.")
-        print(voice_client)
-        print("당신은 봇을 강퇴했습니다.")
-        if voice_client == None:
-            await message.channel.send('봇은 이미 나간 상태입니다.')
-            pass
-            else:
-                await message.channel.send('배돌이가 나갔습니다.') 
-                await voice_client.disconnect()
 
 
 
