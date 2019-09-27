@@ -13,12 +13,12 @@ import bs4
 from bs4 import BeautifulSoup
 from urllib.request import urlopen, Request
 
-
+ 
 app = discord.Client()
 
 @app.event
 async def on_ready():
-    print('로그인 중 입니다 ..!')
+    print('로그인 중 입니다 ..!')  
     print(app.user.name)
     print(app.user.id)
     print('===============')
@@ -27,7 +27,7 @@ async def on_ready():
     
 @app.event
 async def on_member_join(member):
-    fmt = '{1.name} 서버에 온 것을 진심으로 환영합니다 {0.mention} 님'
+    fmt = '{1.name} 서버에 온 것을 진심으로 환영합니다 {0.mention} 님'    #신규유저한테만 보여지는 메세지 입니다.
     channel = member.server.get_channel("585087748952817665")
     await app.message.channel.send( fmt.format(member, member.server))
     await app.message.channel.send(member, "안녕? 난 뉴 배돌이야.")
@@ -42,7 +42,7 @@ async def on_member_remove(member):
     await app.message.channel.send( fmt.format(member, member.server))
           
 @app.event
-async def my_background_task():
+async def my_background_task():                             #주기적으로 배돌이가 공지를 띄워줍니다.
     await app.wait_until_ready()
     channel = discord.Object(id="585087748952817665")
     while not app.is_closed:
@@ -53,7 +53,7 @@ async def my_background_task():
 @app.event
 async def on_message(message):
 
-    if message.content.startswith("!도와줘"):
+    if message.content.startswith("!도와줘"):               #배돌이에게 도움을 요청하면, 명령어 목록창이 출력됩니다.
         dtime = datetime.datetime.now()
         embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
         await message.channel.send(embed=embed)
@@ -223,7 +223,7 @@ async def on_message(message):
         if randomNum==11:
             await message.channel.send(embed=discord.Embed(title="카운터스트라이크 온라인도 한번 해보면 재밌을 거야.", color=0x00ff00))           
 
-    if message.content.startswith("!패치노트"):
+    if message.content.startswith("!패치노트"):                #배돌이의 패치노트입니다. 패치 하나 할때마다 업데이트 됩니다.
         dtime = datetime.datetime.now()
         embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
         await message.channel.send(embed=embed)
@@ -266,7 +266,7 @@ async def on_message(message):
         embed = discord.Embed(title=" ", description=" ***패치노트는 계속 업데이트 할 예정입니다 ^00^ ", color=0x00fefe)
         await message.channel.send(embed=embed)
         
-    if message.content.startswith("!오늘의상식"):
+    if message.content.startswith("!오늘의상식"):             #아이디어 추가바람. 
         await message.channel.send(embed=discord.Embed(title="안녕, 난 뉴 배돌이야. 다음 정보들은 알아두기만 해도 좋은 기본상식들이야.", color=0xfefefe))
         randomNum = random.randrange(1, 4)
         if randomNum==1:
