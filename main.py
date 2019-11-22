@@ -155,7 +155,7 @@ async def on_message(message):
         if randomNum==5:
             await message.channel.send(embed=discord.Embed(title="오늘의유머는 해볼 생각 없어?", color=0x0000ff))
         if randomNum==6:
-            await message.channel.send(embed=discord.Embed(title="정신병원 갤러리 웹사이트는 어떠니??", color=0x0000ff))            
+            await message.channel.send(embed=discord.Embed(title="디시인사이드 파생 웹사이트인 정신병원 갤러리는 어떠니??", color=0x0000ff))            
 
     if message.content.startswith("!볼 만한 유튜버 추천"):             #다소 편협함. 추가바람.
         dtime = datetime.datetime.now()
@@ -288,6 +288,8 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *0.1.6 ", description=" 2019년 08월 22일 목요일, 배돌이가 다음 검색 엔진 기반인 현재 영화 랭킹을 알려줍니다.", color=0x00fefe)
         await message.channel.send(embed=embed)
+        embed = discord.Embed(title=" *0.1.7 ", description=" 2019년 11월 22일 금요일, 배돌이가 이제 비속어와 욕설을 필터링하여 알려줍니다. 바르고 건전한 언어 표현을 사용합시다.", color=0x00fefe)
+        await message.channel.send(embed=embed)        
         embed = discord.Embed(title=" ", description=" ***패치노트는 계속 업데이트 할 예정입니다 ^00^ ", color=0x00fefe)
         await message.channel.send(embed=embed)
         
@@ -334,7 +336,7 @@ async def on_message(message):
         if randomNum==10:
             await message.channel.send(embed=discord.Embed(title="[ 트랜스포머 시리즈 ]는 어떠니?", color=0xfefe00))
         if randomNum==11:
-            await message.channel.send(embed=discord.Embed(title="데이터베이스 오류! 관리자에게 연락바랍니다...", color=0xff0000))
+            await message.channel.send(embed=discord.Embed(title="데이터베이스 오류! 관리자에게 연락바랍니다...", color=0xff0000))  #사실 재미를 위해서 소소하게 넣어 놓은 것뿐이다. 별다른 의미가 없으니 추후 새로운 자작봇을 이 소스를 참고해서 만들 사람들은 삭제하도록.
         
 
 
@@ -619,6 +621,96 @@ async def on_message(message):
         await message.channel.send("때문에 항상 대인관계에 있어서 인내하고 배려하는 태도가 필요하다는 것을 잊지 마시고 모든 인간관계에 신중을 기하도록 하심이 좋습니다.")
 
         
+    if message.content.startswith("씨발"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^ ")        #디스코드 서버 이용자들이 비속어, 욕설을 사용했을 경우 배돌이가 사용하지 말라고 알려줍니다.
+      
+    if message.content.startswith("개새끼"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")
+      
+    if message.content.startswith("병신"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")
+      
+    if message.content.startswith("자살"):
+        await message.channel.send("당신은 소중한 사람 입니다.")   
+        await message.channel.send("자살예방상담전화는 1393 이에요...")  
+        await message.channel.send("혹시, 내가 널 도와줘도 될까?")  
+        await message.channel.send("난 정말로 널 도와주고 싶어.. :)")  
+        
+    if message.content.startswith("ㅅㅂ"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")   
+      
+    if message.content.startswith("섹스"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")     
+      
+    if message.content.startswith("보지"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")    
+      
+    if message.content.startswith("니애미"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^") 
+      
+    if message.content.startswith("노무현"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")     
+      
+    if message.content.startswith("등신"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")  
+      
+    if message.content.startswith("조루"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")  
+      
+    if message.content.startswith("대가리"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")      
+      
+    if message.content.startswith("새끼"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")  
+      
+    if message.content.startswith("씹"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")    
+      
+    if message.content.startswith("아다"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")  
+      
+    if message.content.startswith("후다"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")      
+      
+    if message.content.startswith("게이"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")      
+      
+    if message.content.startswith("기독교"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")      
+      
+     if message.content.startswith("독도"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")     
+       
+    if message.content.startswith("다케시마"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")    
+      
+    if message.content.startswith("위안부"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")  
+      
+    if message.content.startswith("충"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")    
+      
+    if message.content.startswith("강간"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")      
+      
+    if message.content.startswith("한남"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")     
+      
+    if message.content.startswith("유튜버"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")      
+      
+    if message.content.startswith("어미"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")   
+      
+    if message.content.startswith("애미"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")   
+      
+    if message.content.startswith("에미"):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")  
+      
+    if message.content.startswith(""):
+        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")      
+      
     if message.content.startswith("!이모티콘"):     #없어도 되는 기능.
 
         emoji = [" ꒰⑅ᵕ༚ᵕ꒱ ", " ꒰◍ˊ◡ˋ꒱ ", " ⁽⁽◝꒰ ˙ ꒳ ˙ ꒱◜⁾⁾ ", " ༼ つ ◕_◕ ༽つ ", " ⋌༼ •̀ ⌂ •́ ༽⋋ ",
@@ -648,8 +740,8 @@ async def on_message(message):
     
     
         embed = discord.Embed(
-        title='네이버 실시간 검색어',
-        description='실시간검색어',
+        title='급상승 검색어',
+        description='배돌이가 실시간으로 네이버 기반 급상승 검색어를 긁어옵니다.',
         color=discord.Color.green()
             )
         for i in range(0,20):
