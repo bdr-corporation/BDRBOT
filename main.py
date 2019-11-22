@@ -288,7 +288,7 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         embed = discord.Embed(title=" *0.1.6 ", description=" 2019년 08월 22일 목요일, 배돌이가 다음 검색 엔진 기반인 현재 영화 랭킹을 알려줍니다.", color=0x00fefe)
         await message.channel.send(embed=embed)
-        embed = discord.Embed(title=" *0.1.7 ", description=" 2019년 11월 22일 금요일, 배돌이가 이제 비속어와 욕설을 필터링하여 알려줍니다. 바르고 건전한 언어 표현을 사용합시다.", color=0x00fefe)
+        embed = discord.Embed(title=" *0.1.7 ", description=" 2019년 11월 22일 금요일, 배돌이가 이제 비속어와 욕설을 필터링하여 알려줍니다. 바르고 건전한 언어 표현을 사용합시다.(서비스중단)", color=0x00fefe)
         await message.channel.send(embed=embed)        
         embed = discord.Embed(title=" ", description=" ***패치노트는 계속 업데이트 할 예정입니다 ^00^ ", color=0x00fefe)
         await message.channel.send(embed=embed)
@@ -620,93 +620,7 @@ async def on_message(message):
         await message.channel.send("혹은 도움을 요청할 만한 사람이 없다는 것을 의미하기도 합니다. ")
         await message.channel.send("때문에 항상 대인관계에 있어서 인내하고 배려하는 태도가 필요하다는 것을 잊지 마시고 모든 인간관계에 신중을 기하도록 하심이 좋습니다.")
 
-        
-    if message.content.startswith("씨발"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^ ")        #디스코드 서버 이용자들이 비속어, 욕설을 사용했을 경우 배돌이가 사용하지 말라고 알려줍니다.
-      
-    if message.content.startswith("개새끼"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")
-      
-    if message.content.startswith("병신"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")
-      
-    if message.content.startswith("자살"):
-        await message.channel.send("당신은 소중한 사람 입니다.")   
-        await message.channel.send("자살예방상담전화는 1393 이에요...")  
-        await message.channel.send("혹시, 내가 널 도와줘도 될까?")  
-        await message.channel.send("난 정말로 널 도와주고 싶어.. :)")  
-        
-    if message.content.startswith("ㅅㅂ"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")   
-      
-    if message.content.startswith("섹스"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")     
-      
-    if message.content.startswith("보지"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")    
-      
-    if message.content.startswith("니애미"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^") 
-      
-    if message.content.startswith("노무현"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")     
-      
-    if message.content.startswith("등신"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")  
-      
-    if message.content.startswith("조루"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")  
-      
-    if message.content.startswith("대가리"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")      
-      
-    if message.content.startswith("새끼"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")  
-      
-    if message.content.startswith("씹"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")    
-      
-    if message.content.startswith("아다"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")  
-      
-    if message.content.startswith("후다"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")      
-      
-    if message.content.startswith("게이"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")      
-      
-    if message.content.startswith("기독교"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")      
-      
-    if message.content.startswith("독도"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")     
-       
-    if message.content.startswith("다케시마"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")    
-      
-    if message.content.startswith("위안부"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")  
-      
-    if message.content.startswith("강간"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")      
-      
-    if message.content.startswith("한남"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")     
-      
-    if message.content.startswith("유튜버"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")      
-      
-    if message.content.startswith("어미"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")   
-      
-    if message.content.startswith("애미"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")   
-      
-    if message.content.startswith("에미"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")  
-      
-    if message.content.startswith("한녀"):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")      
+              
            
       
     if message.content.startswith("!이모티콘"):     #없어도 되는 기능.
