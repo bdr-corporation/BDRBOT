@@ -707,9 +707,7 @@ async def on_message(message):
       
     if message.content.startswith("에미"):
         await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")  
-      
-    if message.content.startswith(""):
-        await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")      
+           
       
     if message.content.startswith("!이모티콘"):     #없어도 되는 기능.
 
