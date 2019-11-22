@@ -678,7 +678,7 @@ async def on_message(message):
     if message.content.startswith("기독교"):
         await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")      
       
-     if message.content.startswith("독도"):
+    if message.content.startswith("독도"):
         await message.channel.send("바르고 건전한 표현을 사용합시다! ^___^")     
        
     if message.content.startswith("다케시마"):
