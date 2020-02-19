@@ -314,7 +314,7 @@ async def on_message(message):
         embed = discord.Embed(title=str(dtime.year)+"년 "+str(dtime.month)+"월 "+str(dtime.day)+"일 "+str(dtime.hour)+"시 "+str(dtime.minute)+"분 "+str(dtime.second)+"초", color=0xff0000)
         await message.channel.send(embed=embed)       
         await message.channel.send(embed=discord.Embed(title="안녕? 난 니가 어떤 애인진 모르지만, 정성껏 최선을 다해 추천해줄게.", color=0xfefefe))
-        randomNum = random.randrange(1, 12)
+        randomNum = random.randrange(1, 13)
         if randomNum==1:
             await message.channel.send(embed=discord.Embed(title="오늘같은 날에는 추억을 되돌아보게 해줄만한 [해리포터 시리즈] 는 어떠니?", color=0xfefe00))
         if randomNum==2:
@@ -337,7 +337,8 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="[ 트랜스포머 시리즈 ]는 어떠니?", color=0xfefe00))
         if randomNum==11:
             await message.channel.send(embed=discord.Embed(title="데이터베이스 오류! 관리자에게 연락바랍니다...", color=0xff0000))  #사실 재미를 위해서 소소하게 넣어 놓은 것뿐이다. 별다른 의미가 없으니 추후 새로운 자작봇을 이 소스를 참고해서 만들 사람들은 삭제하도록.
-        
+        if randomNum==12:
+            await messege.channel.send(embed=discord.Embed(title="보기만해도 훈훈해지는 [ 겨울왕국 시리즈 ]는 어때?", color=0xfefe00))
 
 
 
